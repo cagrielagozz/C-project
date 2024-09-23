@@ -18,33 +18,6 @@ int lastX, lastY;
 vector<pair<int,int>>path; //Vector storing the correct path
 
 
-void startMaze();
-void createPath();
-void createRandomPaths();
-void printMaze();
-bool correctPath(int x,int y);
-void printXY();
-
-
-int main() {
-    //Applies to higher sizes, but is limited for a more stable image
-    cout<<"Enter one side length of the square maze(1-50): ";
-    cin>>size;
-    lastX=size-1;
-    lastY=size-1;
-
-    startMaze();
-    createPath();
-    createRandomPaths();
-    printMaze();
-    
-    if(correctPath(firstX,firstY)) {
-        printXY();
-    }
-
-    return 0;
-}
-
 
 //Start the maze with walls
 void startMaze() {
@@ -120,6 +93,7 @@ bool correctPath(int x,int y) {
 
 
 //Print the coordinates of the correct path
+//Always true
 void printXY() {
     cout<<"\n\nOutputh Path"<<endl;
     cout<<" ---------";
@@ -130,4 +104,24 @@ void printXY() {
         cout<<it->first<<" | "<<it->second; 
         cout<<" |"<<endl;
     }
+}
+
+
+int main() {
+    //Applies to higher sizes, but is limited for a more stable image
+    cout<<"Enter one side length of the square maze(1-50): ";
+    cin>>size;
+    lastX=size-1;
+    lastY=size-1;
+
+    startMaze();
+    createPath();
+    createRandomPaths();
+    printMaze();
+    
+    if(correctPath(firstX,firstY)) {
+        printXY();
+    }
+
+    return 0;
 }
